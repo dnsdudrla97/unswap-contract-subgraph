@@ -1,0 +1,29 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Swapper
+    network: rinkeby
+    source:
+      address: "0x522864625577b80fFaae1B94d703a1913350811d"
+      abi: Swapper
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipTransferred
+        - Received
+        - Swap
+      abis:
+        - name: Swapper
+          file: ./abis/Swapper.json
+      eventHandlers:
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Received(address,uint256)
+          handler: handleReceived
+        - event: Swap(indexed address,indexed address,address,address,uint256,uint256,uint256)
+          handler: handleSwap
+      file: ./src/swapper.ts
