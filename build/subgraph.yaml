@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: Swapper
@@ -18,10 +18,10 @@ dataSources:
         - Swap
       abis:
         - name: Swapper
-          file: ./abis/Swapper.json
+          file: Swapper/abis/Swapper.json
       eventHandlers:
         - event: Received(address,uint256)
           handler: handleReceived
         - event: Swap(indexed address,indexed address,address,address,uint256,uint256,uint256)
           handler: handleSwap
-      file: ./src/mapping.ts
+      file: Swapper/Swapper.wasm

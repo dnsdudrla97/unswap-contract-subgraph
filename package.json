@@ -7,7 +7,7 @@
     "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ Uniswap",
     "create-local": "graph create --node http://localhost:8020/ Uniswap",
     "remove-local": "graph remove --node http://localhost:8020/ Uniswap",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 Uniswap",
+    "deploy-local": "graph deploy --ipfs https://ipfs.infura.io:5001 --node http://localhost:8020/ Uniswap",
     "test": "graph test"
   },
   "dependencies": {
